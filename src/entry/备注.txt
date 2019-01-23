@@ -1,0 +1,5 @@
+这个目录是做webpack的打包入口作用
+
+后续将写入node渲染的部分配置
+entry/client.js   来作为客户端的入口文件
+entry/server.js   来作为服务端的入口文件
