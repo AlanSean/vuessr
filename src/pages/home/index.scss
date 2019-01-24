@@ -1,0 +1,119 @@
+.home {
+    width: 100%;
+    overflow-x: hidden;
+    ul {
+        background-color: rgb(84, 92, 100);
+        list-style: none;
+        position: relative;
+        margin: 0;
+        padding-left: 0;
+
+        &:before {
+            display: table;
+            content: "";
+        }
+
+        &:after {
+            display: table;
+            clear: both;
+            content: "";
+        }
+
+        li {
+            font-size: 14px;
+            color: #303133;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: border-color 0.3s,background-color 0.3s,color 0.3s;
+            box-sizing: border-box;
+            display: block;
+            font-size: 18px;
+            color: #42b983;
+            border-bottom: 2px solid transparent;
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            margin: 0;
+
+            &:focus {
+                text-decoration: none;
+                outline: none;
+            }
+            &:hover{
+                color: rgb(255, 208, 75);
+            }
+        }
+
+        .is-active {
+            color: rgb(255, 208, 75);
+            border-bottom-color: rgb(255, 208, 75);
+            background-color: rgb(84, 92, 100);
+        }
+    }
+}
+
+.center{
+    position: absolute;
+    width: 100%;
+}
+
+.left-enter {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.left-enter-active {
+    transition: 1s;
+}
+
+.left-leave-to {
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+.left-leave-active {
+    transition: 1s;
+}
+.menu-button{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #fff;
+    background-color: #42b983 ;
+    opacity: 0;
+    transition: 1s;
+    z-index: -1;
+    padding: 5px;
+}
+@media screen and ( max-width:500px){
+    .menu-button{
+        opacity: 1;
+        z-index: 1;
+    }
+    .home {
+        ul{
+            position: absolute;
+            width: 250px;
+            left: -100%;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: 0;
+            transition: 0.3s;
+            span{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 15px;
+                color: #42b983;
+            }
+            li{
+                float: none;
+            }
+        }
+        .ul-show{
+            left: 0;
+            opacity: 1;
+        }
+    }
+}

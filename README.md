@@ -1,6 +1,12 @@
 # vuessr
+#### 启动
+    npm run serve
+#### 打包
+    npm run build
 
-
+#### node服务
+    //暂时没有任何用处
+    npm run start:server
 
     文件创建规范
         模块,组件
@@ -28,7 +34,7 @@
                 css/
                 js/
 
-    文件模板  ps:比较简单的文件初始化
+    文件模板  ps:比较简单的文件初始化cli
         git clone https://github.com/AlanSean/cli-config.git
         cd cli-config
         npm link

@@ -9,6 +9,7 @@ function proxyConfig(obj){
 }
 module.exports = (app) => {
     if (process.env.NODE_ENV !== 'production') {
+        //代理
         app.use('/js/main*', proxy(proxyConfig()));
         app.use('/*hot-update*',proxy(proxyConfig()));
         app.use('/sockjs-node',proxy(proxyConfig({ws:true})));

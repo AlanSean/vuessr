@@ -12,7 +12,7 @@ export function createRouter() {
         routes: [
             {
                 path: "*",
-                redirect: 'home'
+                redirect: '/home/vue'
             },
             ...router
         ]

@@ -6,6 +6,8 @@ module.exports = {
         entry: './src/entry/client'
     }),
     chainWebpack: config => {
+        config.resolve.alias
+            .set('vue$', 'vue/dist/vue.esm.js')
         config.module
             .rule('vue')
                 .use('vue-loader')
@@ -23,15 +25,5 @@ module.exports = {
                         }
                         return options;
                     });
-        config.module
-            .rule('fonts')
-                .use('file-loader')
-                    .loader('file-loader')
-                        .tap(options => {
-                            options = {
-                                name:'font/[path][name].[ext]'
-                            }
-                            return options;
-                        });
     }
 }
