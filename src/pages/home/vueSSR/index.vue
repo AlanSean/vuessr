@@ -1,7 +1,7 @@
 <template>
   <div class="vueSSR">
-      <a href="https://ssr.vuejs.org/zh/">
-          <img src="../img/vuessr.png" alt="vuessr">
+      <a href="https://ssr.vuejs.org/zh/" target="_blank">
+          <img src="https://cloud.githubusercontent.com/assets/499550/17607895/786a415a-5fee-11e6-9c11-45a2cfdf085c.png" alt="vuessr">
       </a>
       <h1>什么是服务器端渲染 (SSR)？</h1>
       <p>

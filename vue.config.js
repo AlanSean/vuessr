@@ -1,9 +1,27 @@
+const ServerPlugin = require('vue-server-renderer/server-plugin'),//生成服务端清单
+      ClientPlugin = require('vue-server-renderer/client-plugin'),//生成客户端清单
+      nodeExternals = require('webpack-node-externals'),//忽略node_modules文件夹中的所有模块
+      VUE_NODE = process.env.VUE_NODE === 'node',
+      entry = VUE_NODE ? 'server' : 'client';//根据环境变量来指向入口
+
 module.exports = {
     css: {
         extract: false//关闭提取css,不关闭 node渲染会报错
     },
     configureWebpack: () => ({
-        entry: './src/entry/client'
+        entry: `./src/entry/${entry}`,
+        output: {
+            filename: 'js/[name].js',
+            chunkFilename: 'js/[name].js',
+            libraryTarget: VUE_NODE ? 'commonjs2' : undefined
+        },
+        target: VUE_NODE  ? 'node' : 'web',
+        externals: VUE_NODE ? nodeExternals({
+            whitelist: /\.css$/
+        }) : undefined,
+        plugins: [//根据环境来生成不同的清单。
+            VUE_NODE ? new ServerPlugin() : new ClientPlugin()
+        ]
     }),
     chainWebpack: config => {
         config.resolve.alias

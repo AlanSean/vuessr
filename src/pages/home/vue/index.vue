@@ -1,7 +1,7 @@
 <template>
 <div class="vue">
     <a href="https://cn.vuejs.org/" target="_blank">
-        <img src="../img/logo.png" aria-label="vue" alt="vue">
+        <img src="https://cn.vuejs.org/images/logo.png"  alt="vue">
     </a>
     <h1>HelloWorld</h1>
     <p>

@@ -1,5 +1,12 @@
+import { createNamespacedHelpers } from 'vuex';
+const { mapState,mapActions } = createNamespacedHelpers('all');
 export default {
     name: 'home',
+    computed:{
+        ...mapState([
+            "count"
+        ])
+    },
     data() {
         return {
             activeIndex2: '1',
@@ -26,7 +33,15 @@ export default {
     },
     watch:{
         $route:function(){
-            this.show = false;
+            if(this.show){
+                this.show = false;
+            }
+            this.inc();
         }
+    },
+    methods: {
+      ...mapActions([
+          'inc'
+      ])
     }
 }

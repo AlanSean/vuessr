@@ -4,36 +4,78 @@
 #### 打包
     npm run build
 
-#### node服务
-    //暂时没有任何用处
-    npm run start:server
+```
+|-- vuessr,
+      |-- babel.config.js,
+      |-- package.json,
+      |-- README.md,
+      |-- vue.config.js,
+      |-- nodeScript,
+      |   |-- index.js,
+      |   |-- proxy.js,
+      |   |-- server.js,
+      |-- public,
+      |   |-- favicon.ico,
+      |   |-- index.html,
+      |-- src,
+          |-- App.vue,
+          |-- main.js,
+          |-- router.config.js,
+          |-- store.config.js,
+          |-- assets,
+          |   |-- 备注.txt,
+          |   |-- img,
+          |       |-- logo.png,
+          |-- components,
+          |   |-- Head,
+          |       |-- index.js,
+          |       |-- index.scss,
+          |       |-- index.vue,
+          |       |-- img,
+          |           |-- logo.png,
+          |-- entry,
+          |   |-- client.js,
+          |   |-- 备注.txt,
+          |-- methods,
+          |   |-- 备注.txt,
+          |   |-- mixin,
+          |       |-- index.js,
+          |-- pages,
+          |   |-- home,
+          |   |   |-- index.js,
+          |   |   |-- index.scss,
+          |   |   |-- index.vue,
+          |   |   |-- img,
+          |   |   |   |-- flow.png,
+          |   |   |   |-- head_portrait.jpg,
+          |   |   |   |-- logo.png,
+          |   |   |   |-- vuessr.png,
+          |   |   |-- vue,
+          |   |   |   |-- index.js,
+          |   |   |   |-- index.scss,
+          |   |   |   |-- index.vue,
+          |   |   |-- vueCli3,
+          |   |   |   |-- index.js,
+          |   |   |   |-- index.scss,
+          |   |   |   |-- index.vue,
+          |   |   |-- vueSSR,
+          |   |   |   |-- index.js,
+          |   |   |   |-- index.scss,
+          |   |   |   |-- index.vue,
+          |   |   |-- vuex,
+          |   |       |-- index.js,
+          |   |       |-- index.scss,
+          |   |       |-- index.vue,
+          |   |-- router,
+          |   |   |-- index.js,
+          |   |-- store,
+          |       |-- all.js,
+          |       |-- gather.js,
+          |       |-- index.js,
+          |-- static,
+              |-- 备注.txt,
 
-    文件创建规范
-        模块,组件
-            assets/
-                img/
-                css/
-                js/
-            components/
-                Head/
-                    img/
-                    index.js
-                    index.scss
-                    index.vue
-
-            pages/
-                HelloWorld/
-                    img/
-                    index.js
-                    index.scss
-                    index.vue
-
-            router
-                index.js
-            static/
-                css/
-                js/
-
+```
     文件模板  ps:比较简单的文件初始化cli
         git clone https://github.com/AlanSean/cli-config.git
         cd cli-config

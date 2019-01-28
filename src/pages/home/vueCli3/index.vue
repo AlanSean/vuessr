@@ -1,7 +1,7 @@
 <template>
 <div class="vueCli3">
     <a href="https://cli.vuejs.org/zh/" target="_blank">
-        <img src="../img/logo.png" alt="vue">
+        <img src="https://cn.vuejs.org/images/logo.png" alt="vue">
     </a>
     <h1>Vue CLI 3</h1>
     <p class="description">Vue.js 开发的标准工具</p>

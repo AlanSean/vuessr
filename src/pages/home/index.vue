@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        {{count}}
         <div
             class="menu-button"
             @click="show=true">导航</div>

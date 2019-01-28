@@ -1,62 +1,67 @@
 {
-  "name": "vuessr",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "start:server": "cross-env NODE-ENV=production  nodemon nodeScript/index.js"
-  },
-  "dependencies": {
-    "element-ui": "^2.4.11",
-    "vue": "^2.5.21",
-    "vue-router": "^3.0.2",
-    "vuex": "^3.1.0"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.3.1",
-    "@vue/cli-plugin-babel": "^3.0.5",
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-component": "^1.1.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "http-proxy-middleware": "^0.19.1",
-    "lodash.merge": "^4.6.1",
-    "npm-run-all": "^4.1.5",
-    "sass-loader": "^7.1.0",
-    "vue-server-renderer": "^2.5.22",
-    "vue-template-compiler": "^2.5.21",
-    "vuex-router-sync": "^5.0.0",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "vuessr",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve:client": " vue-cli-service serve",
+        "build":"npm run build:server -- --silent && npm run build:client -- --no-clean --silent",
+        "build:client": "vue-cli-service build",
+        "build:server": "cross-env VUE_NODE=node vue-cli-service build",
+        "start": "node nodeScript/index",
+        "start:server": "cross-env NODE_ENV=production nodemon nodeScript/index"
+
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {
-      "no-console": 0,
-      "no-unused-vars": 0,
-      "no-undef": 0
+    "dependencies": {
+        "element-ui": "^2.4.11",
+        "mddir": "^1.1.1",
+        "vue": "^2.5.21",
+        "vue-router": "^3.0.2",
+        "vuex": "^3.1.0"
     },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "devDependencies": {
+        "@babel/preset-env": "^7.3.1",
+        "@vue/cli-plugin-babel": "^3.0.5",
+        "@vue/cli-plugin-eslint": "^3.0.5",
+        "@vue/cli-service": "^3.0.5",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-component": "^1.1.1",
+        "eslint": "^5.8.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "http-proxy-middleware": "^0.19.1",
+        "lodash.merge": "^4.6.1",
+        "npm-run-all": "^4.1.5",
+        "sass-loader": "^7.1.0",
+        "vue-server-renderer": "^2.5.22",
+        "vue-template-compiler": "^2.5.21",
+        "vuex-router-sync": "^5.0.0",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {
+            "no-console": 0,
+            "no-unused-vars": 0,
+            "no-undef": 0
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }

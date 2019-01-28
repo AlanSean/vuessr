@@ -1,9 +1,55 @@
 const fs = require('fs');
-const path = require('path');
-const app = require('express')();
+const { resolve } = require('path');
+const express = require('express');
+const app = express();
 const proxy = require('./proxy');
+const { createBundleRenderer } = require('vue-server-renderer')
+
+//模板地址
+const templatePath = resolve(__dirname, '../public/index.nodeTempalte.html')
+//客户端渲染清单
+const clientManifest = require('../dist/vue-ssr-client-manifest.json')
+//服务端渲染清单
+const bundle = require('../dist/vue-ssr-server-bundle.json')
+//读取模板
+const template = fs.readFileSync(templatePath, 'utf-8')
+const renderer = createBundleRenderer(bundle,{
+    template,
+    clientManifest,
+    runInNewContext: false
+})
 
 
+//代理相关
 proxy(app);
+//请求静态资源相关配置
+app.use('/js', express.static(resolve(__dirname, '../dist/js')))
+app.use('/css', express.static(resolve(__dirname, '../dist/css')))
+app.use('/font', express.static(resolve(__dirname, '../dist/font')))
+app.use('/img', express.static(resolve(__dirname, '../dist/img')))
+app.use('*.ico', express.static(resolve(__dirname, '../dist')))
 
+
+//路由请求
+app.get('*', (req, res) => {
+    res.setHeader("Content-Type", "text/html")
+    //传入路由 src/entry/server.js会接收到  使用vueRouter实例进行push
+    const context = {
+        url: req.url
+    }
+
+    renderer.renderToString(context, (err, html) => {
+        if (err) {
+            if (err.url) {
+                res.redirect(err.url)
+            } else {
+                res.status(500).end('500 | 服务器错误');
+                console.error(`${req.url}: 渲染错误 `);
+                console.error(err.stack)
+            }
+        }
+        res.status(context.HTTPStatus || 200)
+        res.send(html)
+    })
+})
 module.exports = app;
