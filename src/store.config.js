@@ -5,8 +5,10 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 import vuexMap from './pages/store';
 function fetchItem(id){
-    return new Promise(function(resolve, reject) {
-        resolve(id)
+    return new Promise( (resolve, reject)=>{
+        setTimeout( ()=> {
+            resolve(id)
+        },100)
     });
 }
 export function createStore() {

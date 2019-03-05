@@ -14,7 +14,7 @@ export default {
             nav:[
                 {
                     path:'/home/vue',
-                    name:'vue'
+                    name:'vues'
                 },
                 {
                     path:'/home/vuex',
@@ -39,9 +39,19 @@ export default {
             this.inc();
         }
     },
+    mounted() {
+        this.user_info();
+    },
     methods: {
-      ...mapActions([
+        ...mapActions([
           'inc'
-      ])
+        ]),
+        user_info(){
+            this.http.post('/cms/i1/user_info').then(res=> {
+                console.log(res.data);
+            }).catch( error => {
+                console.log(error)
+            })
+        }
     }
 }

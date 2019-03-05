@@ -1,5 +1,4 @@
-const app = require('./server')
-
+const app = require('./server');
 app.listen(8080, () => {
   console.log('\033[42;37m DONE \033[40;33m localhost:8080 服务已启动\033[0m')
 })

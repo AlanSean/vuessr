@@ -8,6 +8,9 @@ module.exports = {
     css: {
         extract: false//关闭提取css,不关闭 node渲染会报错
     },
+    devServer:{
+        proxy: 'http://localhost:8080'
+    },
     configureWebpack: () => ({
         entry: `./src/entry/${entry}`,
         output: {

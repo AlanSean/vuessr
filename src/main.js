@@ -1,9 +1,11 @@
 import Vue from 'vue';
 Vue.config.productionTip = false;
 import VueRouter from 'vue-router';
+
 import App from './App.vue';
-import './methods/mixin';
+import './methods';
 import { sync } from 'vuex-router-sync';
+
 
 import {
     createRouter
