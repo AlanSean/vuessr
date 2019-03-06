@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "cross-env": "^5.2.0",
         "element-ui": "^2.4.11",
         "mddir": "^1.1.1",
         "vue": "^2.5.21",
