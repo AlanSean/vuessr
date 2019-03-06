@@ -13,8 +13,7 @@ export default {
             return this.$store.state.items[this.$route.path]
         }
     },
-    created() {
-      //do something after creating vue instance
+    mounted() {
         console.log(this.$store.state.all.count, this.item)
     },
     data: () => ({

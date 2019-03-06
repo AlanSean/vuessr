@@ -8,6 +8,8 @@
     npm run start:server
 
 
+注意事项，代码要写到mounted,created时运行环境基本在node
+
 
 目录结构
 ```
