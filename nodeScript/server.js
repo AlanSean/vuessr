@@ -4,13 +4,13 @@ const express = require('express');
 const app = express();
 const proxy = require('./proxy');
 const { createBundleRenderer } = require('vue-server-renderer')
-
+const pathDir = process.env.NODE_ENV === 'development' ? '../distDev' : '../dist';
 //模板地址
 const templatePath = resolve(__dirname, '../public/index.nodeTempalte.html')
 //客户端渲染清单
-const clientManifest = require('../dist/vue-ssr-client-manifest.json')
+const clientManifest = require(pathDir+'/vue-ssr-client-manifest.json')
 //服务端渲染清单
-const bundle = require('../dist/vue-ssr-server-bundle.json')
+const bundle = require(pathDir+'/vue-ssr-server-bundle.json')
 //读取模板
 const template = fs.readFileSync(templatePath, 'utf-8')
 const renderer = createBundleRenderer(bundle,{
@@ -18,16 +18,14 @@ const renderer = createBundleRenderer(bundle,{
     clientManifest,
     runInNewContext: false
 })
-
-
 //代理相关
 proxy(app);
 //请求静态资源相关配置
-app.use('/js', express.static(resolve(__dirname, '../dist/js')))
-app.use('/css', express.static(resolve(__dirname, '../dist/css')))
-app.use('/font', express.static(resolve(__dirname, '../dist/font')))
-app.use('/img', express.static(resolve(__dirname, '../dist/img')))
-app.use('*.ico', express.static(resolve(__dirname, '../dist')))
+app.use('/js', express.static(resolve(__dirname, pathDir+'/js')))
+app.use('/css', express.static(resolve(__dirname, pathDir+'/css')))
+app.use('/font', express.static(resolve(__dirname, pathDir+'/font')))
+app.use('/img', express.static(resolve(__dirname, pathDir+'/img')))
+app.use('*.ico', express.static(resolve(__dirname, pathDir)))
 
 
 //路由请求

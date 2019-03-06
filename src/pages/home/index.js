@@ -14,7 +14,7 @@ export default {
             nav:[
                 {
                     path:'/home/vue',
-                    name:'vues'
+                    name:'vue'
                 },
                 {
                     path:'/home/vuex',

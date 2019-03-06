@@ -3,13 +3,16 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "serve": "cross-env NODE_ENV=development npm run build && node nodeScript/index",
+        "serve": "npm run build && node nodeScript/index",
         "serve:client": "node nodeScript/index",
         "build": " npm run build:server -- --silent && npm run build:client -- --no-clean --silent",
         "build:client": "vue-cli-service build",
         "build:server": "cross-env VUE_NODE=node vue-cli-service build",
-        "start": "nodemon bin/index -i ./dist/",
+        "start": "cross-env NODE_ENV=development nodemon bin/index",
         "start:server": "cross-env NODE_ENV=production nodemon  nodeScript/index"
+    },
+    "nodemonConfig":{
+        "ignore": ["dist/*", "distDev/*" , "vue.config.js"]
     },
     "dependencies": {
         "axios": "^0.18.0",
