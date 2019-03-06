@@ -9,7 +9,8 @@
         "build:client": "vue-cli-service build",
         "build:server": "cross-env VUE_NODE=node vue-cli-service build",
         "start": "cross-env NODE_ENV=development nodemon bin/index",
-        "start:server": "cross-env NODE_ENV=production nodemon  nodeScript/index"
+        "start:server": "cross-env NODE_ENV=production nodemon  nodeScript/index",
+        "pm2": " cross-env NODE_ENV=production pm2 start  nodeScript/index.js --watch"
     },
     "nodemonConfig":{
         "ignore": ["dist/*", "distDev/*" , "vue.config.js"]

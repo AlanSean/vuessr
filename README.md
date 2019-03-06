@@ -6,7 +6,8 @@
     npm run build
 #### node服务
     npm run start:server
-
+#### 服务器端命令
+    npm run pm2
 
 注意事项，代码要写到mounted,created时运行环境基本在node
 
