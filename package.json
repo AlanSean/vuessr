@@ -5,7 +5,7 @@
     "scripts": {
         "serve": "npm run build && node nodeScript/index",
         "serve:client": "node nodeScript/index",
-        "build": " npm run build:server -- --silent && npm run build:client -- --no-clean --silent",
+        "build": " npm run build:server --  --silent && npm run build:client --  --no-clean --silent",
         "build:client": "vue-cli-service build",
         "build:server": "cross-env VUE_NODE=node vue-cli-service build",
         "start": "cross-env NODE_ENV=development nodemon bin/index",

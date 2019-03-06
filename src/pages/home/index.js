@@ -1,11 +1,14 @@
-import { createNamespacedHelpers } from 'vuex';
-const { mapState,mapActions } = createNamespacedHelpers('all');
+import all from '../store/all.js';
 export default {
     name: 'home',
     computed:{
-        ...mapState([
-            "count"
-        ])
+        count(){
+            return this.$store.state.all.count
+        }
+    },
+    asyncData({ store}){
+        store.registerModule('all',all);
+        return store.dispatch('all/inc')
     },
     data() {
         return {
@@ -36,16 +39,13 @@ export default {
             if(this.show){
                 this.show = false;
             }
-            this.inc();
+            this.$store.dispatch('all/inc');
         }
     },
     mounted() {
-        this.user_info();
+        // this.user_info();
     },
     methods: {
-        ...mapActions([
-          'inc'
-        ]),
         user_info(){
             this.http.post('/cms/i1/user_info').then(res=> {
                 console.log(res.data);
@@ -53,5 +53,8 @@ export default {
                 console.log(error)
             })
         }
+    },
+    destroyed(){
+        this.$store.unregisterModule('all')
     }
 }

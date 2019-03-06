@@ -1,19 +1,14 @@
 //store总配置
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import axios from 'axios';
 Vue.use(Vuex);
-import vuexMap from './pages/store';
 function fetchItem(id){
-    return new Promise( (resolve, reject)=>{
-        setTimeout( ()=> {
-            resolve(id)
-        },100)
-    });
+    //该函数是运行在node环境 所以需要加上域名
+    return axios.post('http://localhost:8080/cms/i1/user_info');
 }
 export function createStore() {
     return new Vuex.Store({
-        ...vuexMap,
         state:{
             items:{}
         },
@@ -26,7 +21,7 @@ export function createStore() {
         },
         mutations: {
             setItem(state, {id, item}){
-                Vue.set(state.items, id, item)
+                Vue.set(state.items, id, item.data)
             }
         }
     })
