@@ -2,9 +2,7 @@ const npm = require('npm');
 const bs = require('browser-sync').create();
 const chokidar = require('chokidar');
 const child_process = require('child_process')
-var num = 0,//计数
-    watchSoundCode=false,//源码是否监听完成
-    watchCompileCompleteCode=false;//打包的代码是否监听完成
+var num = 0;//计数
 
 
 function directives(commond,cb){
@@ -64,9 +62,9 @@ dev(function(){
     console.log("\033[40;31m 编译完成")
     soundCode()
     compileCompleteCode()
-    console.log('开启node服务')
+    console.log(`${num+=1}开启node服务`)
     directives('devServer');
-    console.log('开启browserSync代理服务');
+    console.log(`${num+=1}开启browserSync代理服务`);
     bs.init({
         proxy: 'http://localhost:8080',
         open: false
