@@ -45,11 +45,11 @@ function dev(cb){
 
     console.log(`${num+=1}.chokidar开始监听distDev下的文件`);
     //该文件产生变化时 说明构建已完成。
-    const watcher = chokidar.watch('distDev/vue-ssr-client-manifest.json');
+    const watcher = chokidar.watch('distDev/**/*.*');
     watcher.on('all', (event, path)  => {
         if(event === 'change'){
             console.log(path+'发生变化，开始进行热更新');
-            bs.reload();
+            bs.reload(path);
             console.log('热更新已完成');
         }
     });
