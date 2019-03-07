@@ -3,8 +3,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 Vue.use(Vuex);
-
-const host = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://adm.hqboke.cn';
+//由于browserSync.js代理了8080，所以域名要用3000的。仅开发环境有效。
+const host = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://adm.hqboke.cn';
 console.log(host)
 function fetchItem(id){
     //该函数是运行在node环境 所以需要加上域名
