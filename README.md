@@ -21,6 +21,11 @@
     |-- package.json
     |-- README.md
     |-- vue.config.js
+    ├── bin // 开发环境启动脚本
+    |  ├── index.js
+    |  └── 热更新思路
+    |-- dist //生产环境的打包目录
+    |-- distDev //开发环境的打包目录
     |-- nodeScript //node 渲染配置
     |   |-- index.js
     |   |-- proxy.js
@@ -32,8 +37,8 @@
     |-- src
         |-- App.vue
         |-- main.js
-        |-- router.config.js/。路由集合
-        |-- store.config.js//vuex 集合
+        |-- router.config.js //路由集合
+        |-- store.config.js //vuex 集合
         |-- assets//全局静态资源源码
         |   |-- 备注.txt
         |   |-- img
@@ -83,8 +88,6 @@
         |   |   |-- index.js
         |   |-- store//vuex配置
         |       |-- all.js
-        |       |-- gather.js
-        |       |-- index.js
         |-- static//cdn资源
             |-- 备注.txt
 
