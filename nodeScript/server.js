@@ -32,8 +32,32 @@ app.use('*.ico', express.static(resolve(__dirname, pathDir)))
 app.get('*', (req, res) => {
     res.setHeader("Content-Type", "text/html")
     //传入路由 src/entry/server.js会接收到  使用vueRouter实例进行push
+    //这里进行请求 或者读取所需要的seo信息，数据回来之后再进行下面操作 
+    //例子
+
+    // Promise().then( seo => {
+    //     const context = {
+    //         url: req.url,
+    //         title: 'hello',
+    //     }
+
+    //     renderer.renderToString(context, (err, html) => {
+    //         if (err) {
+    //             if (err.url) {
+    //                 res.redirect(err.url)
+    //             } else {
+    //                 res.status(500).end('500 | 服务器错误');
+    //                 console.error(`${req.url}: 渲染错误 `);
+    //                 console.error(err.stack)
+    //             }
+    //         }
+    //         res.status(context.HTTPStatus || 200)
+    //         res.send(html)
+    //     })
+    // })
     const context = {
-        url: req.url
+        url: req.url,
+        title: 'hello',
     }
 
     renderer.renderToString(context, (err, html) => {

@@ -3,7 +3,7 @@
     <a href="https://cli.vuejs.org/zh/" target="_blank">
         <img src="https://cn.vuejs.org/images/logo.png" alt="vue">
     </a>
-    <h1>Vue CLI 3</h1>
+    <h1>这是接口返回的数据{{item.data}}</h1>
     <p class="description">Vue.js 开发的标准工具</p>
     <p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
     <ul>
